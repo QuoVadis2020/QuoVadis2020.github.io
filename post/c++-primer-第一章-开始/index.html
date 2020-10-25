@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>C&#43;&#43; Primer 第一章 开始 - Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="mirror" /><meta name="description" content="函数包含4部分：返回类型，函数名，形参列表，函数体。 编译器 g&#43;&#43;： 编译：g&#43;&#43; --std=c&#43;&#43;11 main.cpp -o main 运行：./main 获取状态： windows: echo %ERRORLEVEL% UNIX: echo $? 编译多个文件：" /><meta name="keywords" content="Mirror, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.76.5 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/c&#43;&#43;-primer-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BC%80%E5%A7%8B/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="C&#43;&#43; Primer 第一章 开始" />
+<meta property="og:description" content="函数包含4部分：返回类型，函数名，形参列表，函数体。 编译器 g&#43;&#43;： 编译：g&#43;&#43; --std=c&#43;&#43;11 main.cpp -o main 运行：./main 获取状态： windows: echo %ERRORLEVEL% UNIX: echo $? 编译多个文件：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/c&#43;&#43;-primer-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BC%80%E5%A7%8B/" />
+<meta property="article:published_time" content="2020-10-25T10:00:00+08:00" />
+<meta property="article:modified_time" content="2020-10-25T10:00:00+08:00" />
+<meta itemprop="name" content="C&#43;&#43; Primer 第一章 开始">
+<meta itemprop="description" content="函数包含4部分：返回类型，函数名，形参列表，函数体。 编译器 g&#43;&#43;： 编译：g&#43;&#43; --std=c&#43;&#43;11 main.cpp -o main 运行：./main 获取状态： windows: echo %ERRORLEVEL% UNIX: echo $? 编译多个文件：">
+<meta itemprop="datePublished" content="2020-10-25T10:00:00+08:00" />
+<meta itemprop="dateModified" content="2020-10-25T10:00:00+08:00" />
+<meta itemprop="wordCount" content="708">
+
+
+
+<meta itemprop="keywords" content="C&#43;&#43;,C&#43;&#43; Primer,Note," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43; Primer 第一章 开始"/>
+<meta name="twitter:description" content="函数包含4部分：返回类型，函数名，形参列表，函数体。 编译器 g&#43;&#43;： 编译：g&#43;&#43; --std=c&#43;&#43;11 main.cpp -o main 运行：./main 获取状态： windows: echo %ERRORLEVEL% UNIX: echo $? 编译多个文件："/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Mirror</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Mirror</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">C&#43;&#43; Primer 第一章 开始</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-25 </span>
+        <div class="post-category">
+            <a href="/categories/c&#43;&#43;/"> C&#43;&#43; </a>
+            <a href="/categories/note/"> Note </a>
+            </div>
+          <span class="more-meta"> 约 708 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#编译器">编译器</a></li>
+        <li><a href="#io">IO</a></li>
+        <li><a href="#注释">注释</a></li>
+        <li><a href="#循环">循环</a></li>
+        <li><a href="#类">类</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><strong>函数</strong>包含4部分：返回类型，函数名，形参列表，函数体。</p>
+<hr>
+<h2 id="编译器">编译器</h2>
+<p><strong>g++</strong>：</p>
+<ul>
+<li>编译：<code>g++ --std=c++11 main.cpp -o main</code></li>
+<li>运行：<code>./main</code></li>
+<li>获取状态：
+<ul>
+<li>windows: <code>echo %ERRORLEVEL%</code></li>
+<li>UNIX: <code>echo $?</code></li>
+</ul>
+</li>
+<li>编译多个文件：<code>g++ ch01.cpp Sales_item.cc -o main</code></li>
+</ul>
+<hr>
+<h2 id="io">IO</h2>
+<ul>
+<li><strong>istream ostream 输入输出流</strong>：一个流是一个字符序列。</li>
+<li><strong>头文件</strong>：使用标准库的设施都应用<code>#include</code>来包含相关头文件，类的类型一般存储在头文件中，标准库的头文件使用<code>&lt;&gt;</code>，非标准库的头文件使用<code>&quot;&quot;</code>。申明写在<code>.h</code>文件，定义实现写在<code>.cpp</code>文件。。<code>#include &lt;iostream&gt;</code></li>
+<li><strong>endl操纵符</strong>：结束当前行，并将设备关联的<code>缓冲区</code>中的内容刷到设备中。若不手动刷新，则需等到缓冲区满才会自动刷新。</li>
+<li><strong>&raquo;  &laquo; 输入输出运算符</strong>：返回的结果都是左操作数，也就是输入流和输出流本身。</li>
+<li><strong>命名空间（namespace）</strong>：避免名字冲突，标准库定义的所有名字都在<code>std</code>中。也可以使用<code>::作用域运算符</code>在左侧的作用于中寻找右侧那个名字，如<code>std::cout</code>。</li>
+</ul>
+<hr>
+<h2 id="注释">注释</h2>
+<ul>
+<li><strong>单行注释</strong> ：<code>//</code></li>
+<li><strong>多行注释</strong> ：<code>/* */</code></li>
+</ul>
+<hr>
+<h2 id="循环">循环</h2>
+<ul>
+<li>
+<p><strong>while语句</strong>
+条件（condition）为假时结束</p>
+</li>
+<li>
+<p><strong>for语句</strong></p>
+<p><strong>循环头</strong>：</p>
+<ul>
+<li>一个初始化语句（init-statement）</li>
+<li>一个循环条件（condition）</li>
+<li>一个表达式（expression）</li>
+</ul>
+</li>
+<li>
+<p><strong>i++和++i</strong>：i++在语句执行后对i自增，++i在语句执行前对i自增。另外，从运行速度来讲，由于i++返回i的值，而++i返回i的引用，所以对于类类型，++i更快。</p>
+</li>
+</ul>
+<hr>
+<h2 id="类">类</h2>
+<ul>
+<li>包含来自标准库的头文件时应用尖括号<code>&lt;&gt;</code>，不属于标准库的头文件用双引号<code>&quot;&quot;</code></li>
+<li><strong>文件重定向</strong>：大多数系统都可用<code>a.out &lt;infile &gt;outfile</code>来将infile内容作为标准输入，并将标准输出写入到outfile</li>
+</ul>
+<p>关于类 第七章详细整理</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">mirror</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-10-25
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+          <a href="/tags/c&#43;&#43;-primer/">C&#43;&#43; Primer</a>
+          <a href="/tags/note/">Note</a>
+          </div>
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:im.mirror@live.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/QuoVadis2020" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

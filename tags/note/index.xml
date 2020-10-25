@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Blog</description>
+    <title>Note on Blog</title>
+    <link>http://localhost:1313/tags/note/</link>
+    <description>Recent content in Note on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Oct 2020 10:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Oct 2020 10:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43; Primer 第一章 开始</title>
       <link>http://localhost:1313/post/c&#43;&#43;-primer-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BC%80%E5%A7%8B/</link>
@@ -14,15 +14,6 @@
       
       <guid>http://localhost:1313/post/c&#43;&#43;-primer-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BC%80%E5%A7%8B/</guid>
       <description>函数包含4部分：返回类型，函数名，形参列表，函数体。 编译器 g++： 编译：g++ --std=c++11 main.cpp -o main 运行：./main 获取状态： windows: echo %ERRORLEVEL% UNIX: echo $? 编译多个文件：</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/about/</guid>
-      <description>mirror </description>
     </item>
     
   </channel>
